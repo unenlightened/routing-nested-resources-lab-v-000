@@ -5,7 +5,7 @@ class SongsController < ApplicationController
         @songs = artist.songs
       else
         flash[:alert] = "Artist not found."
-        redirect_to artists_path 
+        redirect_to artists_path
       end
     else
       @songs = Song.all
@@ -64,4 +64,3 @@ class SongsController < ApplicationController
     params.require(:song).permit(:title, :artist_name)
   end
 end
-
