@@ -16,6 +16,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_id(params[:id])
     if params[:artist_id]
       if artist = Artist.find_by(id: params[:artist_id])
+        @song = artist.songs.find_by(id: params[:id])
     if !@song
       @artist = Artist.find_by_id(params[:artist_id])
       flash[:alert] = "Song not found."
